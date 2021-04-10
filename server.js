@@ -17,8 +17,8 @@ const demos = require('./controllers/demos-controller');
 demos(app);
 
 // Expanded syntax
-//const quizzesController = require('./controllers/quizzes-controller');
-//quizzesController(app);
+// const quizzesController = require('./controllers/quizzes-controller');
+// quizzesController(app);
 // Compact syntax
 require('./controllers/quizzes-controller')(app);
 

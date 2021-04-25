@@ -1,0 +1,4 @@
+{
+  "mongoLocalURI" : "'mongodb://localhost:27017/whiteboard-02'",
+  "sessionSecretLocal" : "local development"
+}

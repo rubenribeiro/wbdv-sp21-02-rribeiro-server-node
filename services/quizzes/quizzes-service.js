@@ -1,24 +1,28 @@
-
 // Anything related to data is the responsibility of services
+//const quizzes = require ('./quizzes.json');
+//const quizzesModel = require('../../models/quizzes/quizzes-model');
 
-const quizzes = require ('./quizzes.json');
 
-// TODO: Node.js
+const quizzesDao = require('../../daos/quizzes-dao');
 
-const findAllQuizzes = () => {
-    return quizzes;
-}
+const findAllQuizzes = () =>  quizzesDao.findAllQuizzes();
+    //return quizzesModel.find();
+    //return quizzes;
 
-const findQuizById = (quizId) => {
-    return quizzes.find((quiz) => {
-        return quiz._id === quizId;
-    });
-}
 
-//console.log(findAllQuizzes());
-//console.log(findQuizById('123'));
+const findQuizById = (qid) => quizzesDao.findQuizById(qid);
+    //return quizzesModel.findById(qid);
 
-// TODO: MongoDB
+    // return an array (async)
+    // return quizzesModel.find({
+    //     _id: quizId
+    // });
+
+    // old sync from file
+    // return quizzes.find((quiz) => {
+    //     return quiz._id === quizId;
+    // });
+
 const createQuiz = () => {}
 const updateQuiz = () => {}
 const deleteQuiz = () => {}

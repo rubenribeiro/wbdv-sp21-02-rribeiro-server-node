@@ -4,15 +4,23 @@ const questionService = require("../services/questions/questions-service");
 module.exports = (app) => {
     // /api/questions
     const findAllQuestions = (req, res) => {
-        const questions = questionsService.findAllQuestions();
-        res.send(questions);
+        //const questions = questionsService.findAllQuestions();
+        return questionService.findAllQuestions()
+            .then ((questions) => {
+                res.send(questions);
+            })
+        //res.send(questions);
     };
 
     // /api/quizzes/:qzid/questions
     const findQuestionsForQuiz = (req, res ) => {
           const qzid = req.params.qzid;
-          const questions = questionService.findQuestionsForQuiz(qzid);
-          res.send(questions);
+          //const questions = questionService.findQuestionsForQuiz(qzid);
+          questionService.findQuestionsForQuiz(qzid)
+              .then((questions) => {
+                  res.send(questions);
+              });
+          //res.send(questions);
     };
 
     app.get("/api/quizzes/:qzid/questions", findQuestionsForQuiz);
